@@ -1,11 +1,12 @@
+apt-get update 
 apt-get install nginx -y
-apt install php-fpm7.4 -y
+apt install php-fpm -y
 apt install php-mysql -y
 
 echo "=========================extract wordpress cms========================="
 tar vxzf wordpress-5.7.2.tar.gz
 echo "=========================copy wordpress========================="
-cp wordpress /var/www/html/
+cp wordpress /var/www/html/ -r
 cp wp /etc/nginx/sites-available/
 rm -rf /etc/nginx/sites-enabled/default
 echo "=========================creating wordpress symlink========================="
@@ -15,3 +16,4 @@ echo "=========================restart nginx========================="
 service nginx restart
 
 echo "=========================silahkan di test======================"
+service nginx status
